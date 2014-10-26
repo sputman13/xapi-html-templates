@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+    <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+    <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+    <!--[if gt IE 9]><!--> <html class="no-js ie"> <!--<![endif]--><head><meta charset="utf-8" />
+        <!-- meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" -->
+        <title>
+	Experience API Testing Page 
+</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+    <script type="text/javascript" src="jwplayer/jwplayer.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>
+<!-- Download from Rusticis software, this does the heavy lifting of creating the statements -->
+	<script type="text/javascript" src="js/tincan.js"></script>
+<!-- Enter the LRS Endpoint information into this file. -->
+    <script type="text/javascript" src="js/common.js"></script>
+   <script type="text/javascript" src="js/jquery.accordion.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.accordion').accordion({defaultOpen: ''}); //some_id section1 in demo
+        });
+   </script>
+<!-- Script that sets variables on the page for the actor information -->
+    <script type="text/javascript">
+var actor1 = {
+	"mbox": sessionStorage.email,
+	"name": sessionStorage.actorname
+}
+<!-- Sets the page object information for the current page. -->
+var pageObj = {
+                "id":"http://www.altairhyperworks.com/training/new_feature/hw13/index2.html",
+			    "definition":{
+				    "name":{"en-US":"Test xAPI Page 3"},
+				    "description":{"en-US":"Page to test the accordian interaction."}
+				}
+}
+
+<!--Sets the object for the first level accordian interaction. -->
+var pageObj2 = {
+                "id":"http://www.altairhyperworks.com/training/new_feature/hw13/index2.html",
+			    "definition":{
+				    "name":{"en-US":"Accordian 1"},
+				    "description":{"en-US":"Opens accordian interaction number 1."}
+				}
+}
+
+<!-- Sets the object information for the second level accordian interaction. -->
+var pageObj3 = {
+                "id":"http://www.altairhyperworks.com/training/new_feature/hw13/index2.html",
+			    "definition":{
+				    "name":{"en-US":"Accordian 2"},
+				    "description":{"en-US":"Opens accordian interaction number 2."}
+				}
+}
+
+<!-- Sets the object information for the third level accordian interaction
+var pageObj4 = {
+                "id":"http://www.altairhyperworks.com/training/new_feature/hw13/index2.html",
+			    "definition":{
+				    "name":{"en-US":"Accordian 3"},
+				    "description":{"en-US":"Opens accordian interaction number 3."}
+				}
+}
+
+<!-- Script to generate the statement on the current page using the pageObj variable. -->
+tincan.sendStatement(
+    {
+        actor: actor1,
+        verb: {
+            id: "http://adlnet.gov/expapi/verbs/attempted"
+			
+        },
+        target: pageObj,
+    }
+);
+</script>
+<script type="text/javascript">
+
+<!-- Function that creates the statement for the first level accordian interaction using pageObj2. -->
+    function tincanStatement(){
+
+tincan.sendStatement(
+    {
+        actor: actor1,
+        verb: {
+            id: "http://www.altairhyperworks.com/training/verbs/clicked.htm",
+			display:{
+				"en-US":"clicked"
+			}
+        },
+        target: pageObj2,
+    }
+);
+	}
+
+<!-- Function that creates the statement for the second level accordian	interaction using pageObj3. -->
+ function tincanStatement2(){
+
+tincan.sendStatement(
+    {
+        actor: actor1,
+        verb: {
+            id: "http://www.altairhyperworks.com/training/verbs/clicked.htm",
+			display:{
+				"en-US":"clicked"
+			}
+        },
+        target: pageObj3,
+    }
+);
+ }
+
+<!-- Function that creates the statement for the thrid level accordian interaction using pageObj4. -->
+ function tincanStatement3(){
+
+tincan.sendStatement(
+    {
+        actor: actor1,
+        verb: {
+            id: "http://www.altairhyperworks.com/training/verbs/clicked.htm",
+			display:{
+				"en-US":"clicked"
+			}
+        },
+        target: pageObj4,
+    }
+);
+ }
+</script>
+</head>
+
+<body onLoad= "Javacript:get();">
+<div id="header"></div>
+	<!-- #header-->
+
+  
+  <div id="scrollable" style="margin-left:30px; margin-right:15px"><br />
+</div>
+<div class="content">
+
+<!-- HTML Code for each accordian interaction.  Each section contains an onClick that correspnds to the correct function above. -->
+  <div class="accordion" id="section1" onClick="tincanStatement()">Heading<span></span> 1</div>
+    <div class="container">
+        <div class="content">
+            <div>Content Number 1</div>
+            <p>Bacon ipsum dolor sit amet pork chop filet mignon porchetta salami. Meatloaf sirloin pancetta prosciutto sausage cow. Pig ham strip steak porchetta boudin doner salami pork landjaeger turkey. Meatball corned beef ham hock fatback jowl filet mignon t-bone porchetta sausage short ribs. Prosciutto drumstick bresaola ball tip beef ribs swine ribeye cow boudin meatloaf strip steak.</p>
+            <p>Leberkas pastrami turkey jerky swine. Sirloin capicola drumstick landjaeger, pastrami leberkas tail pork hamburger frankfurter meatloaf bacon doner. Tenderloin pancetta shankle rump t-bone spare ribs strip steak bacon turkey corned beef bresaola short loin andouille kevin venison. Pork belly tenderloin fatback frankfurter short loin.</p>
+            <p>Spare ribs capicola porchetta beef ribs short ribs venison ham hock shankle pork belly meatball bresaola corned beef ball tip rump. Porchetta landjaeger ground round kielbasa meatloaf ham hock chuck tri-tip capicola. Rump pork belly cow landjaeger. Sirloin corned beef pork chop flank jerky pancetta fatback doner tenderloin beef swine tri-tip sausage filet mignon ham. Ham jowl pig swine landjaeger salami meatball venison andouille fatback shoulder turducken turkey. Short ribs jowl pastrami, pork chop landjaeger pancetta strip steak turducken spare ribs tenderloin filet mignon doner pork belly bacon shank. Capicola bresaola hamburger chicken bacon beef.</p>
+            <p>Pork loin ground round brisket, beef jerky shank turkey prosciutto tri-tip. Jowl landjaeger pancetta short loin tri-tip chuck shank t-bone flank pastrami. Bacon pork belly turkey, sausage pork short ribs cow ribeye. Hamburger doner capicola sausage, jowl tenderloin turkey chicken pig jerky prosciutto kevin. Doner shank bacon, pancetta tenderloin jowl jerky short loin pig ribeye pork belly meatball.</p>
+        </div>
+    </div>
+    <div class="accordion" id="section2" onClick="tincanStatement2()">Heading<span></span> 2</div>
+    <div class="container">
+        <div class="content">
+            <div>Sample Content</div>
+            <p>Content here....</p>
+        </div>
+    </div>
+    <div class="accordion" id="section3" onClick="tincanStatement3()">Heading<span></span> 3</div>
+    <div class="container">
+        <div class="content">
+            <div>Sample Content</div>
+            <p>Content here....</p>
+        </div>
+    </div>
+ </div><!-- #content-->
+   
+</div>
+
+</body>
+</html>
